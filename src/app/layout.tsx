@@ -10,6 +10,7 @@ const manRope = Manrope({
 export const metadata: Metadata = {
   title: "Marcos Campos",
   description: "Portfolio v2",
+  icons: "/favicon.svg"
 };
 
 export default function RootLayout({
