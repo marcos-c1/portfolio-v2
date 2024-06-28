@@ -60,7 +60,7 @@ function Education() {
                                             </p></a>
                                     </div>
                                 </h3>
-                                <a className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300" href="https://drive.google.com/file/d/1A231SRcLXafsHXNHvLCEUQ980Vw0dCAb/view?usp=drive_link" target="_blank" rel="noreferrer noopener" aria-label="TCC (abre em uma nova aba)">
+                                <a className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300" href="/tcc/TCC_MARCOS_B_CAMPOS.pdf" target="_blank" rel="noreferrer noopener" aria-label="TCC (abre em uma nova aba)">
                                     <Image
                                         className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                                         src="/link.svg"
@@ -295,7 +295,7 @@ function Experience() {
                     </li>
                 </ol>
                 <div className="mt-12">
-                    <a className="inline-flex items-baseline leading-tight hover:text-sky-300 focus-visible:text-sky-300 font-semibold text-slate-200 group/link text-base" href="https://drive.google.com/file/d/1eUDgQYinH5A6zeu17oswHbdU1M69NcS9/view?usp=drive_link" target="_blank" rel="noreferrer noopener" aria-label="View Full Résumé (opens in a new tab)">
+                    <a className="inline-flex items-baseline leading-tight hover:text-sky-300 focus-visible:text-sky-300 font-semibold text-slate-200 group/link text-base" href="/cv/marcos-resume.pdf" target="_blank" rel="noreferrer noopener" aria-label="View Full Résumé (opens in a new tab)">
                         <span className="inline-flex">Ver CV
                             <span className="inline-flex"><Image
                                 className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
@@ -322,7 +322,7 @@ function Projects() {
             <div>
                 <ul className="group/list">
                     <li className="mb-12">
-                        <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                        <div className="group relative grid justify-items-center sm:justify-items-start gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                             <div className="z-10 sm:order-2 sm:col-span-6">
                                 <h3>
@@ -370,7 +370,7 @@ function Projects() {
                         </div>
                     </li>
                     <li className="mb-12">
-                        <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                        <div className="group relative justify-items-center sm:justify-items-start grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                             <div className="z-10 sm:order-2 sm:col-span-6">
                                 <h3>
@@ -447,7 +447,7 @@ function Projects() {
                         </div>
                     </li> */}
                     <li className="mb-12">
-                        <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                        <div className="group relative justify-items-center sm:justify-items-start grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div><div className="z-10 sm:order-2 sm:col-span-6">
                                 <h3>
                                     <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-sky-300 focus-visible:text-sky-300  group/link text-base" href="https://marcosc1.vercel.app/" target="_blank" rel="noreferrer noopener" aria-label="brittanychiang.com (v4) (opens in a new tab)">

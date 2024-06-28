@@ -83,9 +83,16 @@ export default function Header() {
                         </li>
                     </ul>
                 </nav>
-                <a target="_blank" href="/cv/marcos-resume.pdf"
-                    className="inline-block decoration-0 bg-transparent touch-manipulation whitespace-nowrap text-center object-center text-sm rounded border-2 border-slate-200/10 w-fit py-2 px-3 dark:drop-shadow-[0_0_0.3rem_#ffffff70] my-5 hover:bg-sky-300 hover:text-slate-950 transition-all ease duration-300">
-                    Curriculum Vitae
+                <a className="my-10 elative inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300" href="/cv/marcos-resume.pdf" target="_blank" rel="noreferrer noopener" aria-label="TCC (abre em uma nova aba)">
+                    <Image
+                        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                        src="/link.svg"
+                        alt="Redirect to page"
+                        width={16}
+                        height={16}
+                        priority
+                    />
+                    <span className="font-bold ml-2">Curriculum Vitae</span>
                 </a>
 
             </div>
