@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manRope.className} bg-slate-870`}>{children}</body>
-    </html>
+      <body className={`${manRope.className}`}>{children}</body>
+    </html >
   );
 }

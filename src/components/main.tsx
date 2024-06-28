@@ -482,7 +482,7 @@ function Projects() {
                             <Image
                                 className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
                                 src="/portfolio.png"
-                                alt="Covid Tracker on Brazilian States for information about COVID-19"
+                                alt="My old portfolio made entire with Vue.js"
                                 width={200}
                                 height={48}
                                 style={{ color: "transparent" }}
