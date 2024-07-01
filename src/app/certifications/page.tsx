@@ -25,7 +25,7 @@ export default function Page() {
                 <h1 className="text-3xl font-bold tracking-tight text-slate-200 sm:text-4xl mb-15">Todos os certificados</h1>
                 <ul className="group/list">
                     <li className="mb-12">
-                        {certs.map((c, i) => (<Card cert={c} />)
+                        {certs.map((c, i) => (<Card cert={c} key={i} />)
                         )}
                     </li>
 
