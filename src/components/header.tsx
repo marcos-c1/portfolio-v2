@@ -1,19 +1,20 @@
 "use client";
+import { LanguageContext, Languages } from "@/contexts/LanguageContext";
 import Image from "next/image";
-import { useState } from "react";
-
-enum Languages {
-  "ptbr",
-  "eng",
-}
+import { useContext, useEffect, useState } from "react";
 
 export default function Header() {
-  const [defaultLang, setLang] = useState<Languages>(Languages.ptbr);
-  const [isHiddenModal, setHiddenModal] = useState<boolean>(true);
+  const langContext = useContext(LanguageContext);
+  const [isHiddenModal, setHiddenModal] = useState<Boolean>(true);
+
+  const handleModal = () => {
+    setHiddenModal(!isHiddenModal);
+  };
 
   const handleLang = () => {
-    if (defaultLang == Languages.ptbr) setLang(Languages.eng);
-    else setLang(Languages.ptbr);
+    if (langContext?.lang == Languages.ptbr) langContext.setLang(Languages.eng);
+    else langContext?.setLang(Languages.ptbr);
+    setHiddenModal(!isHiddenModal);
   };
 
   return (
@@ -157,17 +158,18 @@ export default function Header() {
               <span className="font-bold ml-2">Curriculum Vitae</span>
             </a>
           </li>
-          <li className="relative">
+          <li className="mb-10 mt-5 relative select-none">
             <button
-              className="mb-10 mt-5 elative inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300 hover:text-slate-200"
+              className="inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300 hover:text-slate-200"
               aria-label="Choose the language that you prefer"
+              onClick={handleModal}
             >
               <Image
                 className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                 src={
-                  defaultLang == Languages.ptbr
-                    ? "/united-states-flag.svg"
-                    : "/brazil-flag.svg"
+                  langContext?.lang == Languages.ptbr
+                    ? "/brazil-flag.svg"
+                    : "/united-states-flag.svg"
                 }
                 alt="Redirect to page"
                 width={28}
@@ -184,14 +186,13 @@ export default function Header() {
               />
             </button>
             <button
-              className="py-2 absolute top-12 pt-4 flex flex-row"
+              className={`${isHiddenModal ? "hidden" : "block"} relative mt-2 flex flex-row`}
               onClick={handleLang}
-              hidden={isHiddenModal}
             >
               <Image
                 className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
                 src={
-                  defaultLang == Languages.ptbr
+                  langContext?.lang == Languages.ptbr
                     ? "/united-states-flag.svg"
                     : "/brazil-flag.svg"
                 }
@@ -201,7 +202,7 @@ export default function Header() {
                 priority
               />
               <span className="pl-2 font-inherit text-sm align-center">
-                {defaultLang == Languages.ptbr ? "English" : "Portuguese"}
+                {langContext?.lang == Languages.ptbr ? "English" : "Portuguese"}
               </span>
             </button>
           </li>
@@ -333,4 +334,3 @@ export default function Header() {
     </header>
   );
 }
-
