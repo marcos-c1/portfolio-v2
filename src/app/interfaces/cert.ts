@@ -1,8 +1,8 @@
-export interface ICert {
-    imagePath: String,
-    imageAlt: String | "",
-    year: Number,
-    name: String,
-    provider: String,
-    url: String,
+export interface Certificate {
+  imagePath: string;
+  imageAlt: string | "";
+  year: number;
+  name: string;
+  provider: string;
+  url: string;
 }
