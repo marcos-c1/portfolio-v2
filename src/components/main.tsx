@@ -14,14 +14,14 @@ function About() {
       ? [
           "Sobre mim",
           "Em 2016, tive meu primeiro contato com o mundo da tecnologia ao me interessar no jogo ",
-          "feito pela Mojang, decidi explorar como funcionava a codificação por detrás dos panos deste jogo sensacional que naquela época era uma dos jogos mais apreciados pelos meus colegas de classe.",
+          " feito pela Mojang, decidi explorar como funcionava a codificação por detrás dos panos deste jogo sensacional que naquela época era uma dos jogos mais apreciados pelos meus colegas de classe.",
           'Nessa "aventura" que surgiu como um hobby, construí os meus primeiros algoritmos de comunicação entre o servidor e o cliente, e foi ali que descobri que a minha curiosidade era uma paixão genuína pela programação. Avançando até hoje, tive o privilégio de trabalhar com mentes brilhantes no mundo corporativo da esfera pública, além de participar de eventos e palestras ao longo da minha carreira acadêmica.',
           "Meu foco principal atualmente é construir aplicações robustas e escaláveis como desenvolvedor Backend, seja nos meus projetos pessoais ou para algum cliente como trabalhador autônomo. Eu gosto de criar softwares no ponto ideal onde os padrões de arquitetura e a engenharia se comunicam para a resolução de eventuais problemas — isto é, softwares que ao mesmo tempo sejam úteis para a sociedade por natureza mas também bem-estruturados em nível de código.",
         ]
       : [
           "About me",
           "In 2016, I had my first contact with the world of technology when I became interested in the game ",
-          "made by Mojang. I decided to explore how coding worked behind the scenes of this sensational game, which at the time was one of the most popular games among my classmates.",
+          " made by Mojang. I decided to explore how coding worked behind the scenes of this sensational game, which at the time was one of the most popular games among my classmates.",
           'In this "adventure" that began as a hobby, I built my first communication algorithms between the server and the client, and it was there that I discovered that my curiosity was a genuine passion for programming. Fast forward to today, I have had the privilege of working with brilliant minds in the corporate world of the public sphere, as well as participating in events and lectures throughout my academic career.',
           "My main focus currently is building robust and scalable applications as a Backend developer, whether in my personal projects or for a client as a freelancer. I like to create software at the ideal point where architectural patterns and engineering communicate to solve eventual problems — that is, software that is both useful to society in nature but also well-structured at the code level.",
           ,
@@ -184,7 +184,7 @@ function Education() {
                   aria-label="Tecnologias usadas"
                 >
                   {education.technologiesUsed.map((t, i) => (
-                    <li className="mr-1.5 mt-2">
+                    <li key={i} className="mr-1.5 mt-2">
                       <div
                         key={i}
                         className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300 "
@@ -347,7 +347,7 @@ function Experience() {
                     >
                       {e.attachmentLinks &&
                         e.attachmentLinks.map((a, i) => (
-                          <li className="mr-4">
+                          <li key={i} className="mr-4">
                             <a
                               className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300"
                               href={a}
@@ -487,7 +487,7 @@ function Projects() {
       <div>
         <ul className="group/list">
           {projects.map((p, i) => (
-            <li className="mb-12">
+            <li key={i} className="mb-12">
               <div className="group relative grid justify-items-center sm:justify-items-start gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                 <div className="z-10 sm:order-2 sm:col-span-6">
