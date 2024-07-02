@@ -1,11 +1,42 @@
 "use client";
-import { LanguageContext, Languages } from "@/contexts/LanguageContext";
+import { LanguageContext, Languages } from "@/contexts/language";
+import { HeaderStructure } from "@/app/interfaces/header";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
+
+enum SectionList {
+  ABOUT_ME = 0,
+  EDUCATION,
+  EXPERIENCE,
+  PROJECTS,
+  CERTIFICATIONS,
+}
 
 export default function Header() {
   const langContext = useContext(LanguageContext);
   const [isHiddenModal, setHiddenModal] = useState<Boolean>(true);
+
+  const headerStructure: HeaderStructure = {
+    title:
+      langContext?.lang == Languages.ptbr
+        ? "Desenvolvedor Backend"
+        : "Backend Developer",
+    summary:
+      langContext?.lang == Languages.ptbr
+        ? "Eu construo sistemas sólidos e seguros que sustentam as experiências que você ama."
+        : "I build strong, secure systems that support the experiences that you love.",
+    sections: [
+      langContext?.lang == Languages.ptbr ? "Sobre mim" : "About me",
+      langContext?.lang == Languages.ptbr ? "Educação" : "Background education",
+      langContext?.lang == Languages.ptbr ? "Experiências" : "Experience",
+      langContext?.lang == Languages.ptbr ? "Projetos" : "Projects",
+      langContext?.lang == Languages.ptbr ? "Certificações" : "Certifications",
+    ],
+    templateRef:
+      langContext?.lang == Languages.ptbr
+        ? "Inspirado no modelo dos projetos de "
+        : "Inspired on projects templates of ",
+  };
 
   const handleModal = () => {
     setHiddenModal(!isHiddenModal);
@@ -24,11 +55,10 @@ export default function Header() {
           <a href="/">Marcos B. Campos</a>
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
-          Desenvolvedor Backend
+          {headerStructure.title}
         </h2>
         <p className="mt-4 max-w-xs leading-normal">
-          Eu construo sistemas sólidos e seguros que sustentam as experiências
-          que você ama.
+          {headerStructure.summary}
         </p>
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
           <ul className="mt-16 w-max">
@@ -48,7 +78,7 @@ export default function Header() {
         [animation-range:0_0] [animation-timeline:scroll()]
                                 "
                 >
-                  Sobre mim
+                  {headerStructure.sections[SectionList.ABOUT_ME]}
                 </span>
               </a>
             </li>
@@ -68,7 +98,7 @@ export default function Header() {
         [animation-range:95px_702px] [animation-timeline:scroll()]
                                 "
                 >
-                  Educação
+                  {headerStructure.sections[SectionList.EDUCATION]}
                 </span>
               </a>
             </li>
@@ -89,7 +119,7 @@ export default function Header() {
 
                                 "
                 >
-                  Experiências
+                  {headerStructure.sections[SectionList.EXPERIENCE]}
                 </span>
               </a>
             </li>
@@ -112,7 +142,7 @@ export default function Header() {
         [animation-range:1173px_2290px] [animation-timeline:scroll()]
                                 "
                 >
-                  Projetos
+                  {headerStructure.sections[SectionList.PROJECTS]}
                 </span>
               </a>
             </li>
@@ -132,7 +162,7 @@ export default function Header() {
         [animation-range:2290px_2700px] [animation-timeline:scroll()]
                                 "
                 >
-                  Certificações
+                  {headerStructure.sections[SectionList.CERTIFICATIONS]}
                 </span>
               </a>
             </li>
@@ -209,7 +239,7 @@ export default function Header() {
         </ul>
       </div>
       <small className="flex justify-start items-end">
-        Inspirado no modelo dos projetos de
+        {headerStructure.templateRef}
         <a
           href="https://github.com/bchiang7"
           target="_blank"

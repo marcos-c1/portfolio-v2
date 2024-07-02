@@ -1,7 +1,7 @@
 "use client";
 import Header from "@/components/header";
 import Content from "@/components/main";
-import { LanguageContext, Languages } from "@/contexts/LanguageContext";
+import { LanguageContext, Languages } from "@/contexts/language";
 import { useState } from "react";
 
 export default function Home() {
