@@ -2,9 +2,10 @@
 import Image from "next/image";
 import { Card } from "@/components/card";
 import { Manrope } from "next/font/google";
-import { useContext } from "react";
-import { LanguageContext, Languages } from "@/contexts/language";
+import { useState } from "react";
+import { Languages } from "@/contexts/language";
 import { Certificate as ICertificate } from "@/app/interfaces/cert";
+import { useSearchParams } from "next/navigation";
 
 const manRope = Manrope({
   subsets: ["latin"],
@@ -12,7 +13,14 @@ const manRope = Manrope({
 });
 
 export default function Page() {
-  const langContext = useContext(LanguageContext);
+  const paramLang = parseInt(useSearchParams().get("lang") ?? "1")
+    ? Languages.eng
+    : Languages.ptbr;
+  console.log(paramLang);
+  const [lang, setLang] = useState<Languages>(paramLang);
+  console.log(lang);
+  const [isHiddenModal, setHiddenModal] = useState<Boolean>(true);
+
   const certs: ICertificate[] = [
     {
       year: 2024,
@@ -33,12 +41,12 @@ export default function Page() {
     {
       year: 2023,
       name:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Curso Web Moderno Completo com JavaScript"
           : "Complete Modern Web with JavaScript Course",
       provider: "Udemy",
       imageAlt:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Curso Web Moderno Completo com JavaScript"
           : "Complete Modern Web with JavaScript Course",
       imagePath: "/cert-web-moderno.png",
@@ -47,12 +55,12 @@ export default function Page() {
     {
       year: 2023,
       name:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "JavaScript do básico ao avançado (c/ Node.js e projetos)"
           : "JavaScript from basic to advanced (with Node.js and projects)",
       provider: "Udemy",
       imageAlt:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "JavaScript do básico ao avançado (c/ Node.js e projetos)"
           : "JavaScript from basic to advanced (with Node.js and projects)",
       imagePath: "/cert-js-basico-avancado.png",
@@ -61,12 +69,12 @@ export default function Page() {
     {
       year: 2023,
       name:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Desenvolvimento avançado em Java"
           : "Advanced Development in Java",
       provider: "DIO",
       imageAlt:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Desenvolvimento avançado em Java"
           : "Advanced Development in Java",
       imagePath: "/cert-java.png",
@@ -75,18 +83,27 @@ export default function Page() {
     {
       year: 2024,
       name:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Programação C# com CRM Dynamics"
           : "C# Programming with CRM Dynamics",
       provider: "DIO",
       imageAlt:
-        langContext?.lang == Languages.ptbr
+        lang == Languages.ptbr
           ? "Programação C# com CRM Dynamics"
           : "C# Programming with CRM Dynamics",
       imagePath: "/cert-csharp-crm.png",
       url: "/certs/csharp_crm.pdf",
     },
   ];
+  const handleModal = () => {
+    setHiddenModal(!isHiddenModal);
+  };
+
+  const handleLang = () => {
+    if (lang == Languages.ptbr) setLang(Languages.eng);
+    else setLang(Languages.ptbr);
+    setHiddenModal(!isHiddenModal);
+  };
 
   return (
     <div
@@ -108,8 +125,61 @@ export default function Page() {
           Marcos Campos
         </a>
         <h1 className="text-3xl font-bold tracking-tight text-slate-200 sm:text-4xl mb-15">
-          Todos os certificados
+          {lang == Languages.ptbr
+            ? "Todos os certificados"
+            : "All certifications"}
         </h1>
+        <ul className="list-none">
+          <li className="mb-10 mt-5 relative select-none">
+            <button
+              className="inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300 hover:text-slate-200"
+              aria-label="Choose the language that you prefer"
+              onClick={handleModal}
+            >
+              <Image
+                className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                src={
+                  lang == Languages.ptbr
+                    ? "/brazil-flag.svg"
+                    : "/united-states-flag.svg"
+                }
+                alt="Redirect to page"
+                width={28}
+                height={28}
+                priority
+              />
+              <Image
+                className="ml-3 relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                src="/select.svg"
+                alt="Redirect to page"
+                width={12}
+                height={12}
+                priority
+              />
+            </button>
+            <button
+              className={`${isHiddenModal ? "hidden" : "block"} relative mt-2 flex flex-row`}
+              onClick={handleLang}
+            >
+              <Image
+                className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+                src={
+                  lang == Languages.ptbr
+                    ? "/united-states-flag.svg"
+                    : "/brazil-flag.svg"
+                }
+                alt="Redirect to page"
+                width={28}
+                height={28}
+                priority
+              />
+              <span className="pl-2 font-inherit text-sm align-center">
+                {lang == Languages.ptbr ? "English" : "Portuguese"}
+              </span>
+            </button>
+          </li>
+        </ul>
+
         <ul className="group/list">
           <li className="mb-12">
             {certs.map((c, i) => (
@@ -121,4 +191,3 @@ export default function Page() {
     </div>
   );
 }
-

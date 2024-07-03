@@ -1,4 +1,5 @@
 import { LanguageContext, Languages } from "@/contexts/language";
+import Link from "next/link";
 import Image from "next/image";
 import { useContext } from "react";
 import { Experience as IExperience } from "@/app/interfaces/experience";
@@ -467,7 +468,7 @@ function Projects() {
           : "An old portfolio site built with Vercel to showcase my personal projects and my professional experiences.",
       technologiesUsed: ["Vue.js", "Typescript", "Vercel"],
       url: "https://marcosc1.vercel.app/",
-      imagePath: "/crud-rh.png",
+      imagePath: "/portfolio.png",
     },
   ];
 
@@ -531,12 +532,11 @@ function Projects() {
                   </ul>
                 </div>
                 <Image
-                  className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                  className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1 transparent"
                   src={p.imagePath}
                   alt={`${p.name}`}
                   width={200}
                   height={48}
-                  style={{ color: "transparent" }}
                   decoding="async"
                   priority
                 />
@@ -674,10 +674,15 @@ function Certs() {
           ))}
         </ul>
         <div className="mt-12">
-          <a
+          <Link
             className="inline-flex items-center font-semibold leading-tight text-slate-200 group"
             aria-label="View Full Project Archive"
-            href="/certifications"
+            href={{
+              pathname: "/certifications",
+              query: {
+                lang: langContext?.lang,
+              },
+            }}
           >
             <span>
               <span className="border-b border-transparent pb-px transition group-hover:border-sky-300 motion-reduce:transition-none">
@@ -696,7 +701,7 @@ function Certs() {
                 />
               </span>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
