@@ -24,7 +24,7 @@ export default function Header() {
     summary:
       langContext?.lang == Languages.ptbr
         ? "Eu construo sistemas sólidos e seguros que sustentam as experiências que você ama."
-        : "I build strong, secure systems that support the experiences that you love.",
+        : "I build strong & secure systems that support the experiences that you love.",
     sections: [
       langContext?.lang == Languages.ptbr ? "Sobre mim" : "About me",
       langContext?.lang == Languages.ptbr ? "Educação" : "Background education",
