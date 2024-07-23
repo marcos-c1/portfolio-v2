@@ -8,4 +8,5 @@ export interface Experience {
   resume: string;
   technologiesUsed: string[];
   date: string;
+  websiteURL: string;
 }

@@ -210,6 +210,30 @@ function Experience() {
     {
       title:
         langContext?.lang == Languages.ptbr
+          ? "Desenvolvedor Backend"
+          : "Backend Developer",
+      company:
+        langContext?.lang == Languages.ptbr
+          ? "Mundo Apex Consultoria e Treinamento"
+          : "Apex World Consulting & Training",
+      occupation:
+        langContext?.lang == Languages.ptbr
+          ? "Trabalhador em tempo integral"
+          : "Full-time worker",
+      resume:
+        langContext?.lang == Languages.ptbr
+          ? "Trabalhei como desenvolvedor backend na aplicação Velit. O principal objetivo era transicionar a aplicação legada feita em Java para o ambiente da Oracle APEX, passando todas as funcionalidades do aplicativo desktop para web/mobile."
+          : "I worked as a backend developer on the Velit application. The main objective was to transition the legacy application made in Java to the Oracle APEX environment, going through all the functionalities of the desktop application for web/mobile.",
+      technologiesUsed: ["JavaScript", "HTML & CSS", "PL/SQL", "APEX"],
+      date:
+        langContext?.lang == Languages.ptbr
+          ? "Jul 2024 — Presente"
+          : "Jul 2024 — Present",
+      websiteURL: "https://mundoapex.com.br/",
+    },
+    {
+      title:
+        langContext?.lang == Languages.ptbr
           ? "Desenvolvedor Frontend"
           : "Frontend Developer",
       company: "Caronas Burguer",
@@ -222,10 +246,8 @@ function Experience() {
           ? "Contruir e manter componentes em layout responsivo usados para construir o frontend do site Caronas Burguer, em todas as páginas. Trabalhei como desenvolvedor independente de acordo com as sugestões propostas pelo dono da hamburgueria, para implementar e providenciar a melhor experiência ao usuário."
           : "Build and maintain responsive layout components used to build the frontend of the Caronas Burguer website, on all pages. I worked as an independent developer according to the suggestions proposed by the burger restaurant owner, to implement and provide the best user experience.",
       technologiesUsed: ["PHP", "HTML & CSS", "BootStrap"],
-      date:
-        langContext?.lang == Languages.ptbr
-          ? "2024 — Presente"
-          : "2024 — Present",
+      date: "Jun 2024 — Jul 2024",
+      websiteURL: "https://www.caronasburger.com.br/",
     },
     {
       title:
@@ -245,6 +267,7 @@ function Experience() {
           : "Build, customize, implement and fix features for Radex system customers. Integrate the microservices from TCU's internal network in collaboration with internal and external control auditors, in accordance with the Regulations Internal Audit Court of the Union.",
       technologiesUsed: ["JavaScript", "HTML & CSS", "PL/SQL", "APEX"],
       date: "2022 — 2024",
+      websiteURL: "https://portal.tcu.gov.br/inicio",
     },
     {
       title:
@@ -276,6 +299,7 @@ function Experience() {
         "OCR - Tesseract",
       ],
       date: langContext?.lang == Languages.ptbr ? "2020 — 2024" : "2020 — 2024",
+      websiteURL: "https://www.gov.br/ebserh/pt-br",
     },
   ];
 
@@ -309,10 +333,10 @@ function Experience() {
                     <div>
                       <a
                         className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-sky-300 focus-visible:text-sky-300 group/link text-base"
-                        href="https://www.klaviyo.com"
+                        href={e.websiteURL}
                         target="_blank"
                         rel="noreferrer noopener"
-                        aria-label="Senior Frontend Engineer, Accessibility at Klaviyo (opens in a new tab)"
+                        aria-label={`${e.occupation} at ${e.company} (opens in a new tab)`}
                       >
                         <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
