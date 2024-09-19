@@ -97,12 +97,8 @@ function Education() {
       "BioPython",
       "IGraph",
     ],
-    date:
-      langContext?.lang == Languages.ptbr
-        ? "2019 — Presente"
-        : "2019 — Present",
-    semester:
-      langContext?.lang == Languages.ptbr ? "8º semestre" : "8th semester",
+    date: langContext?.lang == Languages.ptbr ? "2019 —  2024" : "2019 —  2024",
+    semester: langContext?.lang == Languages.ptbr ? "Graduado" : "Graduated",
   };
 
   return (
@@ -207,30 +203,30 @@ function Education() {
 function Experience() {
   const langContext = useContext(LanguageContext);
   const experience: IExperience[] = [
-    {
-      title:
-        langContext?.lang == Languages.ptbr
-          ? "Desenvolvedor Backend"
-          : "Backend Developer",
-      company:
-        langContext?.lang == Languages.ptbr
-          ? "Mundo Apex Consultoria e Treinamento"
-          : "Apex World Consulting & Training",
-      occupation:
-        langContext?.lang == Languages.ptbr
-          ? "Trabalhador em tempo integral"
-          : "Full-time worker",
-      resume:
-        langContext?.lang == Languages.ptbr
-          ? "Trabalhei como desenvolvedor backend na aplicação Velit. O principal objetivo era transicionar a aplicação legada feita em Java para o ambiente da Oracle APEX, passando todas as funcionalidades do aplicativo desktop para web/mobile."
-          : "I worked as a backend developer on the Velit application. The main objective was to transition the legacy application made in Java to the Oracle APEX environment, going through all the functionalities of the desktop application for web/mobile.",
-      technologiesUsed: ["JavaScript", "HTML & CSS", "PL/SQL", "APEX"],
-      date:
-        langContext?.lang == Languages.ptbr
-          ? "Jul 2024 — Presente"
-          : "Jul 2024 — Present",
-      websiteURL: "https://mundoapex.com.br/",
-    },
+    //{
+    //  title:
+    //    langContext?.lang == Languages.ptbr
+    //      ? "Desenvolvedor Backend"
+    //      : "Backend Developer",
+    //  company:
+    //    langContext?.lang == Languages.ptbr
+    //      ? "Mundo Apex Consultoria e Treinamento"
+    //      : "Apex World Consulting & Training",
+    //  occupation:
+    //    langContext?.lang == Languages.ptbr
+    //      ? "Trabalhador em tempo integral"
+    //      : "Full-time worker",
+    //  resume:
+    //    langContext?.lang == Languages.ptbr
+    //      ? "Trabalhei como desenvolvedor backend na aplicação Velit. O principal objetivo era transicionar a aplicação legada feita em Java para o ambiente da Oracle APEX, passando todas as funcionalidades do aplicativo desktop para web/mobile."
+    //      : "I worked as a backend developer on the Velit application. The main objective was to transition the legacy application made in Java to the Oracle APEX environment, going through all the functionalities of the desktop application for web/mobile.",
+    //  technologiesUsed: ["JavaScript", "HTML & CSS", "PL/SQL", "APEX"],
+    //  date:
+    //    langContext?.lang == Languages.ptbr
+    //      ? "Jul 2024 — Presente"
+    //      : "Jul 2024 — Present",
+    //  websiteURL: "https://mundoapex.com.br/",
+    //},
     {
       title:
         langContext?.lang == Languages.ptbr
