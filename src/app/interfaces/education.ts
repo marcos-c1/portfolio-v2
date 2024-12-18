@@ -1,10 +1,10 @@
 export interface Education {
-  title: string;
   course: string;
   university: string;
+  universityLink: string;
   acronym?: string;
-  attachmentTitle: string;
-  attachmentLink: string;
+  attachmentTitle?: string;
+  attachmentLink?: string;
   technologiesUsed: string[];
   resume: string;
   date: string;

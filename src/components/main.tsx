@@ -63,43 +63,67 @@ function About() {
 
 function Education() {
   const langContext = useContext(LanguageContext);
-  const education: IEducation = {
-    title:
-      langContext?.lang == Languages.ptbr
-        ? "Formação Acadêmica"
-        : "Academic Education",
-    course:
-      langContext?.lang == Languages.ptbr
-        ? "Bacharelado em Ciências da Computação"
-        : "Bachelor of Computer Science",
-    university:
-      langContext?.lang == Languages.ptbr
-        ? "Instituto Federal de Brasília"
-        : "Federal Institute of Brasília",
-    acronym: "IFB",
-    attachmentTitle:
-      langContext?.lang == Languages.ptbr
-        ? "Extração de características em snoRNAs usando modelos matemáticos."
-        : "Feature extraction in snoRNAs using mathematical models",
-    attachmentLink: "/tcc/TCC_MARCOS_B_CAMPOS.pdf",
-    resume:
-      langContext?.lang == Languages.ptbr
-        ? "Os algoritmos de extração de características que empregam abordagens matemáticas, em contraposição aos tradicionais algoritmos genéticos de extração, têm provado ser altamente eficazes na classificação dos snoRNAs. Eles alcançaram uma taxa de precisão superior a 90% na avaliação da predição, o que evidencia sua utilidade na identificação desses pequenos RNAs em sequências de vertebrados e invertebrados."
-        : "Feature extraction algorithms that employ mathematical approaches, as opposed to traditional genetic extraction algorithms, have proven to be highly effective in classifying snoRNAs. They achieved an accuracy rate of over 90% in evaluating the prediction, which highlights their usefulness in identifying these small RNAs in vertebrate and invertebrate sequences.",
-    technologiesUsed: [
-      "Python",
-      "Shell",
-      "Numpy",
-      "MatPlotLib",
-      "Pandas",
-      "SciPy",
-      "Scikit-Learn",
-      "BioPython",
-      "IGraph",
-    ],
-    date: langContext?.lang == Languages.ptbr ? "2019 —  2024" : "2019 —  2024",
-    semester: langContext?.lang == Languages.ptbr ? "Graduado" : "Graduated",
-  };
+  const title: string = langContext?.lang == Languages.ptbr ? "Formação Acadêmica" : "Academic Education";
+
+  const education: IEducation[] = [
+    {
+      course:
+        langContext?.lang == Languages.ptbr
+          ? "Mestrado em Informática"
+          : "Master's degree in computer science",
+      university:
+        langContext?.lang == Languages.ptbr
+          ? "Universidade de Brasília"
+          : "Brasília's University",
+      universityLink: "https://ppgi.unb.br/pt/",
+      acronym: "UnB",
+      resume:
+        langContext?.lang == Languages.ptbr
+          ? "Área de Pesquisa: Large Language Model (LLMs)."
+          : "Research Area: Large Language Models (LLMs).",
+      technologiesUsed: [
+        "Python",
+        "Shell" 
+      ],
+      date: langContext?.lang == Languages.ptbr ? "Out 2024 — Presente" : "Out 2024 — Present",
+      semester: langContext?.lang == Languages.ptbr ? "1° semestre" : "1st semester",
+    },
+    {
+      
+      course:
+        langContext?.lang == Languages.ptbr
+          ? "Bacharelado em Ciências da Computação"
+          : "Bachelor of Computer Science",
+      university:
+        langContext?.lang == Languages.ptbr
+          ? "Instituto Federal de Brasília"
+          : "Federal Institute of Brasília",
+      universityLink: "https://www.ifb.edu.br/taguatinga",
+      acronym: "IFB",
+      attachmentTitle:
+        langContext?.lang == Languages.ptbr
+          ? "Extração de características em snoRNAs usando modelos matemáticos."
+          : "Feature extraction in snoRNAs using mathematical models",
+      attachmentLink: "/tcc/TCC_MARCOS_B_CAMPOS.pdf",
+      resume:
+        langContext?.lang == Languages.ptbr
+          ? "Os algoritmos de extração de características que empregam abordagens matemáticas, em contraposição aos tradicionais algoritmos genéticos de extração, têm provado ser altamente eficazes na classificação dos snoRNAs. Eles alcançaram uma taxa de precisão superior a 90% na avaliação da predição, o que evidencia sua utilidade na identificação desses pequenos RNAs em sequências de vertebrados e invertebrados."
+          : "Feature extraction algorithms that employ mathematical approaches, as opposed to traditional genetic extraction algorithms, have proven to be highly effective in classifying snoRNAs. They achieved an accuracy rate of over 90% in evaluating the prediction, which highlights their usefulness in identifying these small RNAs in vertebrate and invertebrate sequences.",
+      technologiesUsed: [
+        "Python",
+        "Shell",
+        "Numpy",
+        "MatPlotLib",
+        "Pandas",
+        "SciPy",
+        "Scikit-Learn",
+        "BioPython",
+        "IGraph",
+      ],
+      date: langContext?.lang == Languages.ptbr ? "2019 — Ago 2024" : "2019 — Ago 2024",
+      semester: langContext?.lang == Languages.ptbr ? "Graduado" : "Graduated",
+    }
+  ];
 
   return (
     <section
@@ -109,12 +133,13 @@ function Education() {
     >
       <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
-          {education.title}
+          {title}
         </h2>
       </div>
       <div>
         <ol className="group/list">
-          <li className="mb-12">
+          {education.map((education, index) => (
+            <li className="mb-12" key={index}>
             <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
               <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
               <header
@@ -129,10 +154,10 @@ function Education() {
                   <div>
                     <a
                       className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-sky-300 focus-visible:text-sky-300 group/link text-base"
-                      href="https://www.ifb.edu.br/taguatinga"
+                      href={education.universityLink}
                       target="_blank"
                       rel="noreferrer noopener"
-                      aria-label="Instituto Federal de Brasília, Campus Taguatinga (abre em uma nova aba)"
+                      aria-label={education.course}
                     >
                       <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                       <p>
@@ -152,26 +177,29 @@ function Education() {
                     </a>
                   </div>
                 </h3>
-                <a
-                  className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300"
-                  href={education.attachmentLink}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label="TCC (abre em uma nova aba)"
-                >
-                  <Image
-                    className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                    src="/link.svg"
-                    alt="Redirect to page"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                  <span>
-                    <span className="font-bold ml-2">TCC: </span>
-                    {education.attachmentTitle}
-                  </span>
-                </a>
+                {education.attachmentTitle ? (
+                    <a
+                    className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300"
+                    href={education.attachmentLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label="TCC (abre em uma nova aba)"
+                  >
+                    <Image
+                      className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                      src="/link.svg"
+                      alt="Redirect to page"
+                      width={16}
+                      height={16}
+                      priority
+                    />
+                    <span>
+                      <span className="font-bold ml-2">TCC: </span>
+                      {education.attachmentTitle}
+                    </span>
+                  </a>
+                ) : <></>}
+                
 
                 <p className="mt-2 text-sm leading-normal">
                   {education.resume}
@@ -194,6 +222,7 @@ function Education() {
               </div>
             </div>
           </li>
+          ))}
         </ol>
       </div>
     </section>
