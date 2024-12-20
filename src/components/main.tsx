@@ -63,7 +63,10 @@ function About() {
 
 function Education() {
   const langContext = useContext(LanguageContext);
-  const title: string = langContext?.lang == Languages.ptbr ? "Formação Acadêmica" : "Academic Education";
+  const title: string =
+    langContext?.lang == Languages.ptbr
+      ? "Formação Acadêmica"
+      : "Academic Education";
 
   const education: IEducation[] = [
     {
@@ -81,15 +84,15 @@ function Education() {
         langContext?.lang == Languages.ptbr
           ? "Área de Pesquisa: Large Language Model (LLMs)."
           : "Research Area: Large Language Models (LLMs).",
-      technologiesUsed: [
-        "Python",
-        "Shell" 
-      ],
-      date: langContext?.lang == Languages.ptbr ? "Out 2024 — Presente" : "Out 2024 — Present",
-      semester: langContext?.lang == Languages.ptbr ? "1° semestre" : "1st semester",
+      technologiesUsed: ["Python", "Shell"],
+      date:
+        langContext?.lang == Languages.ptbr
+          ? "Out 2024 — Presente"
+          : "Out 2024 — Present",
+      semester:
+        langContext?.lang == Languages.ptbr ? "1° semestre" : "1st semester",
     },
     {
-      
       course:
         langContext?.lang == Languages.ptbr
           ? "Bacharelado em Ciências da Computação"
@@ -120,9 +123,12 @@ function Education() {
         "BioPython",
         "IGraph",
       ],
-      date: langContext?.lang == Languages.ptbr ? "2019 — Ago 2024" : "2019 — Ago 2024",
+      date:
+        langContext?.lang == Languages.ptbr
+          ? "2019 — Ago 2024"
+          : "2019 — Ago 2024",
       semester: langContext?.lang == Languages.ptbr ? "Graduado" : "Graduated",
-    }
+    },
   ];
 
   return (
@@ -140,88 +146,89 @@ function Education() {
         <ol className="group/list">
           {education.map((education, index) => (
             <li className="mb-12" key={index}>
-            <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-              <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
-              <header
-                className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
-                aria-label="2019 to Present"
-              >
-                <p>{education.date}</p>
-                <p className="mt-2">{education.semester}</p>
-              </header>
-              <div className="z-10 sm:col-span-6">
-                <h3 className="font-medium leading-snug text-slate-200">
-                  <div>
+              <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                <header
+                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+                  aria-label="2019 to Present"
+                >
+                  <p>{education.date}</p>
+                  <p className="mt-2">{education.semester}</p>
+                </header>
+                <div className="z-10 sm:col-span-6">
+                  <h3 className="font-medium leading-snug text-slate-200">
+                    <div>
+                      <a
+                        className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-sky-300 focus-visible:text-sky-300 group/link text-base"
+                        href={education.universityLink}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={education.course}
+                      >
+                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                        <p>
+                          {education.course} ·{" "}
+                          <span className="inline-flex">
+                            {education.university} — {education.acronym}
+                            <Image
+                              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                              src="/go-to.svg"
+                              alt="Redirect to page"
+                              width={16}
+                              height={16}
+                              priority
+                            />
+                          </span>
+                        </p>
+                      </a>
+                    </div>
+                  </h3>
+                  {education.attachmentTitle ? (
                     <a
-                      className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-sky-300 focus-visible:text-sky-300 group/link text-base"
-                      href={education.universityLink}
+                      className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300"
+                      href={education.attachmentLink}
                       target="_blank"
                       rel="noreferrer noopener"
-                      aria-label={education.course}
+                      aria-label="TCC (abre em uma nova aba)"
                     >
-                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-                      <p>
-                        {education.course} ·{" "}
-                        <span className="inline-flex">
-                          {education.university} — {education.acronym}
-                          <Image
-                            className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                            src="/go-to.svg"
-                            alt="Redirect to page"
-                            width={16}
-                            height={16}
-                            priority
-                          />
-                        </span>
-                      </p>
+                      <Image
+                        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                        src="/link.svg"
+                        alt="Redirect to page"
+                        width={16}
+                        height={16}
+                        priority
+                      />
+                      <span>
+                        <span className="font-bold ml-2">TCC: </span>
+                        {education.attachmentTitle}
+                      </span>
                     </a>
-                  </div>
-                </h3>
-                {education.attachmentTitle ? (
-                    <a
-                    className="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-sky-300 focus-visible:text-sky-300"
-                    href={education.attachmentLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="TCC (abre em uma nova aba)"
-                  >
-                    <Image
-                      className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-                      src="/link.svg"
-                      alt="Redirect to page"
-                      width={16}
-                      height={16}
-                      priority
-                    />
-                    <span>
-                      <span className="font-bold ml-2">TCC: </span>
-                      {education.attachmentTitle}
-                    </span>
-                  </a>
-                ) : <></>}
-                
+                  ) : (
+                    <></>
+                  )}
 
-                <p className="mt-2 text-sm leading-normal">
-                  {education.resume}
-                </p>
-                <ul
-                  className="mt-2 flex flex-wrap"
-                  aria-label="Tecnologias usadas"
-                >
-                  {education.technologiesUsed.map((t, i) => (
-                    <li key={i} className="mr-1.5 mt-2">
-                      <div
-                        key={i}
-                        className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300 "
-                      >
-                        {t}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                  <p className="mt-2 text-sm leading-normal">
+                    {education.resume}
+                  </p>
+                  <ul
+                    className="mt-2 flex flex-wrap"
+                    aria-label="Tecnologias usadas"
+                  >
+                    {education.technologiesUsed.map((t, i) => (
+                      <li key={i} className="mr-1.5 mt-2">
+                        <div
+                          key={i}
+                          className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300 "
+                        >
+                          {t}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
           ))}
         </ol>
       </div>
@@ -237,11 +244,28 @@ function Experience() {
         langContext?.lang == Languages.ptbr
           ? "Analista de Sistemas"
           : "System's Analyst",
+      company:
+        langContext?.lang == Languages.ptbr
+          ? "Prescon Informática"
+          : "Prescon's Information Technology",
+      occupation:
+        langContext?.lang == Languages.ptbr ? "Efetivo" : "Full-time worker",
+      resume:
+        langContext?.lang == Languages.ptbr
+          ? "Responsável pelos módulos de transporte e frota do ambiente de desenvolvimento."
+          : "Responsible of some shipping and transport modules of the entire development ecosystem.",
+      technologiesUsed: ["Javascript", "HTML & CSS", "PL/SQL", "APEX"],
+      date: "Dec 2024 — Present",
+      websiteURL: "http://www.presconinformatica.com.br/",
+    },
+    {
+      title:
+        langContext?.lang == Languages.ptbr
+          ? "Analista de Sistemas"
+          : "System's Analyst",
       company: "Consult Mídia Soluções",
       occupation:
-        langContext?.lang == Languages.ptbr
-          ? "Terceirizado"
-          : "Outsourced",
+        langContext?.lang == Languages.ptbr ? "Terceirizado" : "Outsourced",
       resume:
         langContext?.lang == Languages.ptbr
           ? "Reconstrução do projeto SisLegis a partir de um novo layout de estilização feito no Figma."
